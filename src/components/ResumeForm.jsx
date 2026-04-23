@@ -130,7 +130,7 @@ export default function ResumeForm({ data, onChange }) {
           <div className="form-grid">
             <div className="uv-input-group">
               <label className="uv-label" htmlFor="fullName">Full Name <span className="required-star">*</span></label>
-              <input id="fullName" className="uv-input" type="text" placeholder="John Doe" required value={data.fullName} onChange={e => updateField('fullName', e.target.value)} />
+              <input id="fullName" className="uv-input" type="text" placeholder="Dhanraj Rathod" required value={data.fullName} onChange={e => updateField('fullName', e.target.value)} />
             </div>
             <div className="uv-input-group">
               <label className="uv-label" htmlFor="jobTitle">Job Title <span className="required-star">*</span></label>
@@ -138,7 +138,7 @@ export default function ResumeForm({ data, onChange }) {
             </div>
             <div className="uv-input-group">
               <label className="uv-label" htmlFor="email">Email <span className="required-star">*</span></label>
-              <input id="email" className="uv-input" type="email" placeholder="john@example.com" required value={data.email} onChange={e => updateField('email', e.target.value)} />
+              <input id="email" className="uv-input" type="email" placeholder="dhanrajrathod@example.com" required value={data.email} onChange={e => updateField('email', e.target.value)} />
             </div>
             <div className="uv-input-group">
               <label className="uv-label" htmlFor="phone">Phone <span className="required-star">*</span></label>
@@ -150,11 +150,11 @@ export default function ResumeForm({ data, onChange }) {
             </div>
             <div className="uv-input-group">
               <label className="uv-label" htmlFor="linkedin">LinkedIn</label>
-              <input id="linkedin" className="uv-input" type="url" placeholder="linkedin.com/in/johndoe" value={data.linkedin} onChange={e => updateField('linkedin', e.target.value)} />
+              <input id="linkedin" className="uv-input" type="url" placeholder="linkedin.com/in/dhanrajrathod" value={data.linkedin} onChange={e => updateField('linkedin', e.target.value)} />
             </div>
             <div className="uv-input-group">
               <label className="uv-label" htmlFor="website">Website</label>
-              <input id="website" className="uv-input" type="url" placeholder="johndoe.dev" value={data.website} onChange={e => updateField('website', e.target.value)} />
+              <input id="website" className="uv-input" type="url" placeholder="dhanrajrathod.dev" value={data.website} onChange={e => updateField('website', e.target.value)} />
             </div>
           </div>
           </>

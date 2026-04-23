@@ -1,0 +1,118 @@
+/* ===== APP LAYOUT ===== */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-default);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.topbar__logo {
+  font-size: 1.5rem;
+}
+
+.topbar__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.topbar__title-accent {
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ===== MAIN SPLIT LAYOUT ===== */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  min-height: 0;
+}
+
+.main-layout__form {
+  overflow-y: auto;
+  max-height: calc(100vh - 57px);
+  border-right: 1px solid var(--border-default);
+  background: var(--bg-primary);
+}
+
+.main-layout__preview {
+  overflow-y: auto;
+  max-height: calc(100vh - 57px);
+  background: #1e1e2e;
+  padding: 0;
+}
+
+/* ===== MOBILE TOGGLE ===== */
+.mobile-toggle {
+  display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+  }
+
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .main-layout__form,
+  .main-layout__preview {
+    max-height: none;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .topbar,
+  .main-layout__form {
+    display: none !important;
+  }
+
+  .main-layout {
+    display: block;
+  }
+
+  .main-layout__preview {
+    max-height: none;
+    overflow: visible;
+    background: white;
+  }
+
+  .hidden-mobile {
+    display: block !important;
+  }
+}

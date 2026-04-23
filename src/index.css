@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Dark Theme Palette */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #1a1a2e;
+  --bg-card-hover: #1e1e34;
+  --bg-input: #0d0d14;
+
+  /* Accent - Purple Gradient (from uiverse button) */
+  --accent-start: rgba(77, 54, 208, 1);
+  --accent-end: rgba(132, 116, 254, 1);
+  --accent-glow: hsla(249, 62%, 51%, 0.4);
+  --accent-soft: hsla(249, 62%, 51%, 0.15);
+
+  /* Text */
+  --text-primary: #f0f0f5;
+  --text-secondary: #9595a8;
+  --text-muted: #5c5c6f;
+  --text-label: #b0b0c4;
+
+  /* Borders */
+  --border-default: #2a2a3e;
+  --border-hover: #4d36d0;
+  --border-focus: #8474fe;
+
+  /* Misc */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+  --shadow-glow: 0 0.7em 1.5em -0.5em var(--accent-glow);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --transition-base: 0.3s cubic-bezier(.25,.01,.25,1);
+
+  /* Resume Preview */
+  --resume-bg: #ffffff;
+  --resume-text: #1a1a2e;
+  --resume-heading: #0a0a0f;
+  --resume-accent: #4d36d0;
+  --resume-muted: #6b7280;
+  --resume-border: #e5e7eb;
+}
+
+/* ===== RESET & BASE ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===== UIVERSE-INSPIRED BUTTON ===== */
+.uv-btn {
+  line-height: 1;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.75em 1.25em;
+  color: #fff;
+  border: 1px solid transparent;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border-radius: var(--radius-xl);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-glow);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  background: linear-gradient(90deg, var(--accent-start) 0%, var(--accent-end) 100%);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.uv-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0.7em 2em -0.3em var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.uv-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0.3em 1em -0.3em var(--accent-glow);
+}
+
+.uv-btn--sm {
+  padding: 0.5em 1em;
+  font-size: 0.8rem;
+}
+
+.uv-btn--outline {
+  background: transparent;
+  border: 1.5px solid var(--border-default);
+  box-shadow: none;
+  color: var(--text-secondary);
+}
+
+.uv-btn--outline:hover {
+  border-color: var(--accent-end);
+  color: var(--text-primary);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.uv-btn--danger {
+  background: linear-gradient(90deg, #dc2626 0%, #f87171 100%);
+  box-shadow: 0 0.7em 1.5em -0.5em rgba(220, 38, 38, 0.4);
+}
+
+.uv-btn--danger:hover {
+  box-shadow: 0 0.7em 2em -0.3em rgba(220, 38, 38, 0.5);
+}
+
+.uv-btn__icon {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ===== UIVERSE-INSPIRED INPUT ===== */
+.uv-input-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.uv-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-label);
+  letter-spacing: 0.02em;
+  transition: color var(--transition-base);
+}
+
+.uv-label .required-star {
+  color: #f87171;
+  margin-left: 2px;
+}
+
+.uv-input {
+  width: 100%;
+  height: 44px;
+  background-color: var(--bg-input);
+  border-radius: var(--radius-sm);
+  padding: 0 1rem;
+  border: 2px solid var(--border-default);
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  transition: border-color var(--transition-base), color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.uv-input::placeholder {
+  color: var(--text-muted);
+}
+
+.uv-input:hover,
+.uv-input:focus,
+.uv-input-group:hover .uv-input {
+  outline: none;
+  border-color: var(--border-focus);
+  background-color: rgba(132, 116, 254, 0.04);
+}
+
+.uv-input:focus {
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.uv-input-group:hover .uv-label {
+  color: var(--accent-end);
+}
+
+.uv-textarea {
+  min-height: 100px;
+  padding: 0.75rem 1rem;
+  resize: vertical;
+  height: auto;
+}
+
+/* Validation */
+.uv-input:invalid:not(:placeholder-shown) {
+  border-color: #f87171;
+}
+
+.uv-input:invalid:not(:placeholder-shown):focus {
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
+}
+
+/* ===== UIVERSE-INSPIRED CARD ===== */
+.uv-card {
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  position: relative;
+  padding: 1.5rem;
+  border: 1.5px solid var(--border-default);
+  transition: border-color 0.4s ease-out, box-shadow 0.4s ease-out, transform 0.4s ease-out;
+  overflow: visible;
+}
+
+.uv-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(77, 54, 208, 0.12);
+}
+
+.uv-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.uv-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.uv-card__title-icon {
+  color: var(--accent-end);
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .resume-preview {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
